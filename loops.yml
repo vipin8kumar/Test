@@ -1,0 +1,13 @@
+--- #target
+- hosts: oauth
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+          - password: vip/u.GuFckEU
+  tasks:
+          - name: add user
+            user: name='{{item}}' password={{password}}
+            with_items:
+                    - vipin
+                    - sachin            

@@ -1,0 +1,9 @@
+---
+- hosts: oauth
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+          - name: Install httpd on server
+            action: yum name=httpd state=installed

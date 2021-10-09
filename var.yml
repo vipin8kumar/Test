@@ -1,0 +1,10 @@
+---
+- hosts: oauth
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+          pkgname: httpd
+  tasks:
+          - name: Intsall httpd on server
+            action: yum name='{{pkgname}}' state=absent

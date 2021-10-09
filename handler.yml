@@ -1,0 +1,17 @@
+---
+- hosts: oauth
+  user: ansible
+  become: yes
+  connection: ssh
+  vars: 
+       - pkg: httpd
+  tasks:
+          - name: install and restart httpd
+            action: yum name='{{pkg}}' state=present
+            notify: restart httpd
+  handlers:
+          - name: restart httpd
+            action: service name='{{pkg}}' state=restarted
+            notify: httpd started
+          - name: httpd started
+            action: service name='{{pkg}}' state=reloaded

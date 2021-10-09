@@ -1,0 +1,3 @@
+- name: intsall httpd on server
+  yum: name=httpd state=present
+  notify: start httpd
